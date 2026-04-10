@@ -1,0 +1,22 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using Razorpages.Data;
+using Razorpages.Models;
+
+namespace Razorpages.Pages.Book
+{
+    public class IndexModel : PageModel
+    {
+        private readonly MyAppDbContext _context;
+        public IndexModel(MyAppDbContext context)
+        {
+            _context = context;
+        }
+        public IList<Books> Books { get; set; }
+        public async Task OnGetAsync()
+        {
+            Books = await _context.Books.ToListAsync();
+        }
+    }
+}

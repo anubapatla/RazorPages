@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Razorpages.Models
 {
@@ -6,10 +7,10 @@ namespace Razorpages.Models
     {
         public int Id { get; set; }
         [Required]
-        [DisplayColumn("Book Title")]
+        [DisplayName("Book Title")]
         public string BookTitle { get; set; }
 
-        [DisplayColumn("BookDescription")]
+        [DisplayName("BookDescription")]
         public string BookDescription { get; set; }
         [Required]
         public string Author { get; set; }
